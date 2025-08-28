@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invest in Water, Secure the Future</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a professional font like Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* A simple modal for user messages */
+        .modal {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .modal.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal-content {
+            animation: slide-in 0.3s ease-out;
+        }
+        @keyframes slide-in {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Message Modal -->
+    <div id="message-modal" class="modal fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center hidden">
+        <div class="modal-content bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm mx-4">
+            <p id="modal-text" class="text-xl font-semibold mb-4"></p>
+            <button id="modal-close-btn" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">Close</button>
+        </div>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-600">AquaVest</h1>
+            <div class="space-x-4 flex items-center">
+                <a href="#how-it-works" class="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">How It Works</a>
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium hidden md:block">Features</a>
+                <a href="#sources" class="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium hidden md:block">Sources</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium">Contact</a>
+                <button id="cta-header-btn" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors duration-200 font-semibold shadow-md">Get Started</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-24 md:py-32 flex items-center justify-center text-center">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-md">Invest in Water, Secure the Future</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 drop-shadow-md">A unique platform connecting investors with sustainable water resources. Invest per liter and help local communities preserve and maintain their village ponds, wells and rivers.</p>
+                <div class="space-x-4">
+                    <button id="invest-btn" class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:scale-105 transform transition-transform duration-300">Invest Now</button>
+                    <button id="add-water-btn" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:bg-white hover:text-cyan-500 transform transition-all duration-300">Add Your Water Source</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Jal Seva?</h3>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Feature 1 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                        <div class="flex-shrink-0 w-16 h-16 bg-blue-200 rounded-full flex items-center justify-center text-blue-700 text-3xl font-bold mb-4 md:mb-0 md:mr-6">🌱</div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Sustainable Impact</h4>
+                            <p class="text-gray-600 max-w-md mx-auto md:mx-0">Your investment directly contributes to the preservation and health of local water ecosystems. Every liter matters.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                        <div class="flex-shrink-0 w-16 h-16 bg-green-200 rounded-full flex items-center justify-center text-green-700 text-3xl font-bold mb-4 md:mb-0 md:mr-6">✨</div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Transparent Transactions</h4>
+                            <p class="text-gray-600 max-w-md mx-auto md:mx-0">Track your investment's progress and see exactly how your funds are being used to support water conservation projects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center mt-12">
+                    <!-- Feature 3 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                        <div class="flex-shrink-0 w-16 h-16 bg-cyan-200 rounded-full flex items-center justify-center text-cyan-700 text-3xl font-bold mb-4 md:mb-0 md:mr-6">🤝</div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Community Driven</h4>
+                            <p class="text-gray-600 max-w-md mx-auto md:mx-0">We connect local communities with a global network of investors, fostering a collective approach to water stewardship.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+                        <div class="flex-shrink-0 w-16 h-16 bg-yellow-200 rounded-full flex items-center justify-center text-yellow-700 text-3xl font-bold mb-4 md:mb-0 md:mr-6">📈</div>
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Grow with an Asset</h4>
+                            <p class="text-gray-600 max-w-md mx-auto md:mx-0">As water resources are conserved and managed, their value can grow, providing a unique return for investors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">How It Works</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Step 1: Owners -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg border-t-4 border-blue-500 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-5xl mb-4 text-blue-500">
+                            <span class="inline-block transform -rotate-12">💧</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">List Your Water Source</h4>
+                        <p class="text-gray-600">Owners submit details of their pond or reservoir, including location, capacity, and a price per liter. Our team verifies the source.</p>
+                    </div>
+                    <!-- Step 2: Investors -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg border-t-4 border-green-500 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-5xl mb-4 text-green-500">
+                            <span class="inline-block transform -rotate-6">💰</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Invest in a Project</h4>
+                        <p class="text-gray-600">Browse verified sources and invest a specified amount, which is calculated per liter. Your funds are securely held and released for approved projects.</p>
+                    </div>
+                    <!-- Step 3: Impact -->
+                    <div class="bg-gray-50 p-8 rounded-2xl shadow-lg border-t-4 border-cyan-500 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
+                        <div class="text-5xl mb-4 text-cyan-500">
+                            <span class="inline-block transform rotate-12">🤝</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2">Track Your Impact</h4>
+                        <p class="text-gray-600">Watch as your investment funds are used to improve and sustain the water source. Receive regular updates on the project's success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Water Sources Showcase -->
+        <section id="sources" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center mb-12">Featured Water Sources</h3>
+                <p class="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">Explore some of the verified water sources available for investment. Each one is a step towards a healthier planet.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Source Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/228B22/FFFFFF?text=Village+Pond+in+Rajasthan" alt="A village pond in Rajasthan" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-2xl font-bold mb-2 text-blue-700">The Rajasthan Pukhra</h4>
+                            <p class="text-gray-600 text-sm mb-4">Location: Pali District, Rajasthan</p>
+                            <div class="flex justify-between items-center text-gray-800 font-semibold mb-4">
+                                <span>Liters Available: 50,000L</span>
+                                <span class="text-xl text-green-600 font-extrabold">₹0.05/L</span>
+                            </div>
+                            <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold">Invest in This Source</button>
+                        </div>
+                    </div>
+                    <!-- Source Card 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/0047AB/FFFFFF?text=Kerala+Backwaters+Tributary" alt="A tributary in the Kerala backwaters" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-2xl font-bold mb-2 text-blue-700">Kerala Backwaters Tributary</h4>
+                            <p class="text-gray-600 text-sm mb-4">Location: Alappuzha, Kerala</p>
+                            <div class="flex justify-between items-center text-gray-800 font-semibold mb-4">
+                                <span>Liters Available: 200,000L</span>
+                                <span class="text-xl text-green-600 font-extrabold">₹0.02/L</span>
+                            </div>
+                            <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold">Invest in This Source</button>
+                        </div>
+                    </div>
+                    <!-- Source Card 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://placehold.co/600x400/87CEEB/FFFFFF?text=Himalayan+Lake+in+Uttarakhand" alt="A Himalayan lake in Uttarakhand" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h4 class="text-2xl font-bold mb-2 text-blue-700">Himalayan Purity Lake</h4>
+                            <p class="text-gray-600 text-sm mb-4">Location: Chamoli, Uttarakhand</p>
+                            <div class="flex justify-between items-center text-gray-800 font-semibold mb-4">
+                                <span>Liters Available: 75,000L</span>
+                                <span class="text-xl text-green-600 font-extrabold">₹0.08/L</span>
+                            </div>
+                            <button class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200 font-semibold">Invest in This Source</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold text-center mb-16">What Our Community Says</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-md border-l-4 border-blue-500">
+                        <p class="text-lg italic text-gray-700 mb-4">"Jal Seva made it incredibly easy to contribute to a cause I care deeply about. The transparency of how my funds are used is truly impressive."</p>
+                        <p class="font-bold text-blue-600">- Ankit M.</p>
+                        <p class="text-sm text-gray-500">Environmental Investor</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-md border-l-4 border-green-500">
+                        <p class="text-lg italic text-gray-700 mb-4">"We were struggling to fund maintenance for our community well. Jal Seva provided the perfect solution. It's a game-changer for our village."</p>
+                        <p class="font-bold text-green-600">- Priya K.</p>
+                        <p class="text-sm text-gray-500">Community Well Owner</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-md border-l-4 border-cyan-500">
+                        <p class="text-lg italic text-gray-700 mb-4">"The platform is intuitive and the mission is powerful. I love that I can see the real-world impact of my investment right from my dashboard."</p>
+                        <p class="font-bold text-cyan-600">- Rahul V.</p>
+                        <p class="text-sm text-gray-500">Impact Investor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="contact" class="bg-blue-600 text-white py-20 text-center">
+            <div class="container mx-auto px-6">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Ready to Make an Impact?</h3>
+                <p class="text-lg max-w-2xl mx-auto mb-8">Join the Jal Seva community today. Whether you're a resource owner or a passionate investor, your actions will help create a more water-secure future.</p>
+                <button id="cta-main-btn" class="bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-bold hover:bg-gray-200 transition-colors duration-200 shadow-xl">Join Jal Seva Today</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 Jal Seva. All rights reserved.</p>
+            <p>Designed with <span class="text-red-500">&hearts;</span> and a passion for conservation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for handling interactions
+        document.addEventListener('DOMContentLoaded', () => {
+            const messageModal = document.getElementById('message-modal');
+            const modalText = document.getElementById('modal-text');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            // Function to show the custom message modal
+            function showMessage(message) {
+                modalText.textContent = message;
+                messageModal.classList.remove('hidden');
+            }
+
+            // Function to hide the custom message modal
+            function hideMessage() {
+                messageModal.classList.add('hidden');
+            }
+
+            // Listeners for the main buttons
+            const investBtn = document.getElementById('invest-btn');
+            const addWaterBtn = document.getElementById('add-water-btn');
+            const ctaHeaderBtn = document.getElementById('cta-header-btn');
+            const ctaMainBtn = document.getElementById('cta-main-btn');
+
+            if (investBtn) {
+                investBtn.addEventListener('click', () => {
+                    showMessage('This would take you to the investment dashboard!');
+                });
+            }
+
+            if (addWaterBtn) {
+                addWaterBtn.addEventListener('click', () => {
+                    showMessage('This would take you to the water source submission form!');
+                });
+            }
+
+            if (ctaHeaderBtn) {
+                ctaHeaderBtn.addEventListener('click', () => {
+                    showMessage('Welcome to Jal Seva! This button would start the registration process.');
+                });
+            }
+
+            if (ctaMainBtn) {
+                ctaMainBtn.addEventListener('click', () => {
+                    showMessage('Thank you for your interest! This would start your sign-up journey.');
+                });
+            }
+
+            // Listener to close the modal
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', hideMessage);
+            }
+        });
+    </script>
+</body>
+</html>
